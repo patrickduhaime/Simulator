@@ -7,7 +7,7 @@ def main():
     liste = Liste_Doublement_Chainee()
     for i in range(5):
         n = Noeud()
-        n.id = i
+        n.cle = i
         liste.add_noeud(n)
 
     moyenne = 0.0
