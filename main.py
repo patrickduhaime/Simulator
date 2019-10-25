@@ -30,7 +30,7 @@ def main():
 
     moyenne = moyenne / nb_iterations
     print "moyenne:", moyenne
-    print "pourcentage qui ont finis apres trois pas:", (1 - (fini_en_moins_de_trois / nb_iterations)) * 100, "%"
+    print "pourcentage qui ont finis apres trois pas ou plus:", (1 - (fini_en_moins_de_trois / nb_iterations)) * 100, "%"
     # print "resultats:", resultats
 
 
