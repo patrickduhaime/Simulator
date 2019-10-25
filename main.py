@@ -11,9 +11,9 @@ def main():
         liste.add_noeud(n)
 
     moyenne = 0.0
-    fini_en_trois = 0.0
-    resultats = []
-    nb_iterations = 10000
+    fini_en_moins_de_trois = 0.0
+    # resultats = []
+    nb_iterations = 100000
 
     for i in range(nb_iterations):
         neoud_markov = liste.get_noeud(random.randint(1, 3))
@@ -23,15 +23,15 @@ def main():
             compteur = compteur + 1
             if neoud_markov.suivant is None or neoud_markov.precedent is None:
                 break
-        if compteur == 3:
-            fini_en_trois = fini_en_trois + 1
+        if compteur == 1 or compteur == 2:
+            fini_en_moins_de_trois = fini_en_moins_de_trois + 1
         moyenne = moyenne + compteur
-        resultats.append(compteur)
+        # resultats.append(compteur)
 
     moyenne = moyenne / nb_iterations
     print "moyenne:", moyenne
-    print "pourcentage qui ont finis en trois:", fini_en_trois / nb_iterations
-    print "resultats:", resultats
+    print "pourcentage qui ont finis apres trois pas:", (1 - (fini_en_moins_de_trois / nb_iterations)) * 100, "%"
+    # print "resultats:", resultats
 
 
 def deplacement_aleatoire(noeud):
