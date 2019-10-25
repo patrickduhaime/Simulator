@@ -1,4 +1,4 @@
-class Liste:
+class Liste_Doublement_Chainee:
     def __init__(self):
         self.premier = None
         self.dernier = None
@@ -18,12 +18,12 @@ class Liste:
     def get_noeud(self, cle):
         if self.nb_noeuds > 0:
             courant = self.premier
-            if courant.id == cle:
+            if courant.cle == cle:
                 return courant
             for i in range(1, self.nb_noeuds):
                 courant = courant.suivant
                 if courant is None:
                     return None
-                if courant.id == cle:
+                if courant.cle == cle:
                     return courant
         return None

@@ -1,10 +1,10 @@
 from noeud import Noeud
-from liste import Liste
+from liste_doublement_chainee import Liste_Doublement_Chainee
 import random
 
 
 def main():
-    liste = Liste()
+    liste = Liste_Doublement_Chainee()
     for i in range(5):
         n = Noeud()
         n.id = i
@@ -13,28 +13,28 @@ def main():
     moyenne = 0.0
     fini_en_trois = 0.0
     resultats = []
+    nb_iterations = 10000
 
-    for i in range(10):
+    for i in range(nb_iterations):
         neoud_markov = liste.get_noeud(random.randint(1, 3))
         compteur = 0
         while True:
-            neoud_markov = deplacement(neoud_markov)
+            neoud_markov = deplacement_aleatoire(neoud_markov)
             compteur = compteur + 1
             if neoud_markov.suivant is None or neoud_markov.precedent is None:
                 break
         if compteur == 3:
             fini_en_trois = fini_en_trois + 1
+        moyenne = moyenne + compteur
         resultats.append(compteur)
 
-    for i in resultats:
-        moyenne = moyenne + i
-    moyenne = moyenne / len(resultats)
+    moyenne = moyenne / nb_iterations
     print "moyenne:", moyenne
-    print "pourcentage qui ont finis en trois:", fini_en_trois / len(resultats)
+    print "pourcentage qui ont finis en trois:", fini_en_trois / nb_iterations
     print "resultats:", resultats
 
 
-def deplacement(noeud):
+def deplacement_aleatoire(noeud):
     if random.randint(0, 1) == 0:
         noeud = noeud.precedent
     else:
