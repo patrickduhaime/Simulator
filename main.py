@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-# -*- coding: utf-8 -*-
 from random import random
 import matplotlib.pyplot as plt
 import statistics
@@ -7,6 +5,7 @@ from numpy import std
 
 #random.randrange() with two arguments to choose starting node
 #print('Random number between 1 and 3 : ', random.randrange(1, 4))
+
 
 class DrunkardWalk:
 
@@ -23,6 +22,7 @@ class DrunkardWalk:
                 self.current_state += 1
             else:
                 self.current_state -= 1
+
 
 # Parameters
 MAX_STATE = 3
@@ -56,7 +56,7 @@ Max        = %s
        statistics.mode(time_to_absorb), min(time_to_absorb), max(time_to_absorb),
        float(std(time_to_absorb)))
 
-=======
+
 from noeud import noeud
 
 
@@ -73,4 +73,4 @@ def main():
 
 if __name__ == '__main__':
     main()
->>>>>>> 1bd45775d90de15d0148f1ecbe24712bfba633a9
+
