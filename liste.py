@@ -1,25 +1,29 @@
-from noeud import noeud
-
-
-class liste:
+class Liste:
     def __init__(self):
         self.premier = None
         self.dernier = None
-        self.nbNoeud = 0
+        self.nb_noeuds = 0
 
-    def add_noeud_debut(self, n):
-        if self.nbNoeud > 0:
-            temp = self.premier
-            self.premier = n
-            self.premier.suivant = temp
-        else:
-            self.premier = n
-        self.nbNoeud = self.nbNoeud + 1
-
-    def add_noeud_fin(self, n):
-        if self.nbNoeud > 0:
+    # ajoute un noeud a la fin de la chaine
+    def add_noeud(self, n):
+        if self.nb_noeuds > 0:
             self.dernier.suivant = n
+            n.precedent = self.dernier
             self.dernier = n
         else:
             self.premier = n
-        self.nbNoeud = self.nbNoeud + 1
+            self.dernier = n
+        self.nb_noeuds = self.nb_noeuds + 1
+
+    def get_noeud(self, cle):
+        if self.nb_noeuds > 0:
+            courant = self.premier
+            if courant.id == cle:
+                return courant
+            for i in range(1, self.nb_noeuds):
+                courant = courant.suivant
+                if courant is None:
+                    return None
+                if courant.id == cle:
+                    return courant
+        return None
